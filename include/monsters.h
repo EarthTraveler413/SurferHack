@@ -91,6 +91,12 @@
         SIZ(10, 10, MS_SILENT, MZ_TINY), 0, 0,
         M1_ANIMAL | M1_NOHANDS | M1_OVIPAROUS | M1_CARNIVORE, M2_HOSTILE, 0,
         4, CLR_BROWN, GIANT_ANT),
+    MON(NAM("giant mosquito"), S_ANT, LVL(1, 18, 2, 0, 0), (G_GENO | G_SGROUP | 3),
+        A(ATTK(AT_BITE, AD_DRCO, 1, 1), ATTK(AT_BITE, AD_PHYS, 1, 1), NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(10, 10, MS_BUZZ, MZ_TINY), MR_POISON, MR_POISON,
+        M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_OVIPAROUS | M1_POIS, M2_HOSTILE, 0,
+        4, CLR_ORANGE, GIANT_MOSQUITO),
     MON(NAM("killer bee"), S_ANT,
         LVL(1, 18, -1, 0, 0), (G_GENO | G_LGROUP | 2),
         A(ATTK(AT_STNG, AD_DRST, 1, 3),
@@ -121,6 +127,24 @@
         SIZ(200, 50, MS_SILENT, MZ_LARGE), MR_POISON, MR_POISON,
         M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_CARNIVORE, M2_HOSTILE, 0,
         6, CLR_BLACK, GIANT_BEETLE),
+    /* The dragonflies violate the color-theming rules, but otherwise I would have
+       to recycle a color so *shrug* */
+    MON(NAM("dragonfly"), S_ANT, 
+        LVL(6, 18, 3, 10, 0), (G_GENO | G_NOHELL | 2),
+        A(ATTK(AT_BREA, AD_FIRE, 1, 10), ATTK(AT_CLAW, AD_PHYS, 1, 6),
+          ATTK(AT_CLAW, AD_PHYS, 1, 6), NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(40, 15, MS_SILENT, MZ_TINY), 0, 0,
+        M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_HERBIVORE, M2_HOSTILE,
+        M3_INFRAVISIBLE,
+        7, CLR_BRIGHT_BLUE, DRAGONFLY),
+    MON(NAM("locust"), S_ANT, 
+        LVL(6,24,-1,0,0), (G_GENO | G_HELL | G_LGROUP | 3),
+        A(ATTK(AT_BITE, AD_FAMN, 1, 8),
+          NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(1,1, MS_CHIRP, MZ_TINY), MR_POISON, 0,
+        M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_HERBIVORE, 
+        M2_HOSTILE, 0,
+        10, CLR_GRAY, LOCUST),
     MON(NAM("queen bee"), S_ANT,
         LVL(9, 24, -4, 0, 0), (G_GENO | G_NOGEN),
         A(ATTK(AT_STNG, AD_DRST, 1, 8),
@@ -129,6 +153,24 @@
         M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_OVIPAROUS | M1_POIS,
         M2_HOSTILE | M2_FEMALE | M2_PRINCE, 0,
         12, HI_LORD, QUEEN_BEE),
+    MON(NAM("queen ant"), S_ANT, 
+        LVL(11, 24, -1, 15, 0), (G_GENO | G_NOGEN),
+        A(ATTK(AT_BITE, AD_PHYS, 3, 4), ATTK(AT_BITE, AD_DRST, 4, 4), 
+          ATTK(AT_BITE, AD_FIRE, 3, 4), NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(40, 20, MS_SILENT, MZ_TINY), MR_POISON | MR_FIRE, MR_POISON | MR_FIRE,
+        M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_OVIPAROUS | M1_POIS |
+        M1_CARNIVORE, M2_HOSTILE | M2_FEMALE | M2_PRINCE,
+        M3_INFRAVISIBLE,
+        14, HI_LORD, QUEEN_ANT),
+    MON(NAM("giant dragonfly"), S_ANT,
+        LVL(14, 24, -2, 30, 0), (G_GENO | G_HELL | 1),
+        A(ATTK(AT_BREA, AD_FIRE, 2, 10), ATTK(AT_CLAW, AD_FIRE, 2, 6), 
+          ATTK(AT_CLAW, AD_PHYS, 2, 6), ATTK(AT_CLAW, AD_PHYS, 2, 6),
+          NO_ATTK, NO_ATTK),
+        SIZ(250, 150, MS_SILENT, MZ_MEDIUM), MR_FIRE, 0,
+        M1_ANIMAL | M1_FLY | M1_NOHANDS | M1_OVIPAROUS | M1_CARNIVORE, 
+        M2_HOSTILE, M3_INFRAVISIBLE | M3_INFRAVISION,
+        16, CLR_BRIGHT_BLUE, GIANT_DRAGONFLY),
     /*
      * blobs
      */
@@ -525,7 +567,7 @@
         M1_HUMANOID | M1_FLY | M1_SEE_INVIS | M1_OMNIVORE,
         M2_HOSTILE | M2_NASTY | M2_GREEDY | M2_JEWELS | M2_COLLECT,
         M3_INFRAVISIBLE | M3_INFRAVISION,
-        13, CLR_BRIGHT_MAGENTA, MIND_FLAYER),
+        13, CLR_BRIGHT_GREEN, MIND_FLAYER),
     MON(NAM("master mind flayer"), S_HUMANOID,
         LVL(13, 12, 0, 90, -8), (G_GENO | 1),
         A(ATTK(AT_WEAP, AD_PHYS, 1, 8), ATTK(AT_TENT, AD_DRIN, 2, 1),
@@ -535,7 +577,7 @@
         M1_HUMANOID | M1_FLY | M1_SEE_INVIS | M1_OMNIVORE,
         M2_HOSTILE | M2_NASTY | M2_GREEDY | M2_JEWELS | M2_COLLECT,
         M3_INFRAVISIBLE | M3_INFRAVISION,
-        19, CLR_BRIGHT_MAGENTA, MASTER_MIND_FLAYER),
+        19, CLR_BRIGHT_GREEN, MASTER_MIND_FLAYER),
     /*
      * imps & other minor demons/devils
      */
@@ -932,6 +974,14 @@
         /* In reality, they tunnel instead of cutting lumber.  Oh, well. */
         M2_WANDER | M2_HOSTILE, M3_INFRAVISIBLE,
         4, CLR_BROWN, WOODCHUCK),
+    MON(NAM("plague rat"), S_RODENT, 
+        LVL(8, 18, 0, 10, 0), (G_GENO | G_HELL | G_SGROUP | 2), 
+        A(ATTK(AT_BITE, AD_DISE, 1, 12),
+          NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(30, 30, MS_SILENT, MZ_SMALL), MR_POISON, 0,
+        M1_ANIMAL | M1_NOHANDS | M1_SWIM | M1_CARNIVORE | M1_POIS,
+        M2_HOSTILE, M3_INFRAVISIBLE | M3_INFRAVISION,
+        12, CLR_BLACK, PLAGUE_RAT),
     /*
      * spiders & scorpions (keep webmaker() in sync if new critters are added)
      */
@@ -2140,7 +2190,7 @@
         M3_INFRAVISIBLE,
         14, CLR_GREEN, GENETIC_ENGINEER),
     /*
-     * Rust monster or disenchanter
+     * Rust monster or other equipment 'recker
      */
     MON(NAM("rust monster"), S_RUSTMONST,
         LVL(5, 18, 2, 0, 0), (G_GENO | 2),
@@ -2150,6 +2200,13 @@
         M1_SWIM | M1_ANIMAL | M1_NOHANDS | M1_METALLIVORE, M2_HOSTILE,
         M3_INFRAVISIBLE,
         8, CLR_BROWN, RUST_MONSTER),
+    MON(NAM("maligner"), S_RUSTMONST, 
+        LVL(9, 15, 0, 0, -5), (G_GENO | 2),
+        A(NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(900, 225, MS_SILENT, MZ_MEDIUM), 0, 0,
+        M1_ANIMAL | M1_CARNIVORE, M2_HOSTILE,
+        M3_INFRAVISIBLE,
+        11, CLR_BLACK, MALIGNER),
     MON(NAM("disenchanter"), S_RUSTMONST,
         LVL(12, 12, -10, 0, -3), (G_HELL | G_GENO | 2),
         A(ATTK(AT_CLAW, AD_ENCH, 4, 4), ATTK(AT_NONE, AD_ENCH, 0, 0),
@@ -2207,7 +2264,7 @@
         M1_SWIM | M1_CONCEAL | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS
             | M1_CARNIVORE | M1_OVIPAROUS | M1_NOTAKE,
         M2_HOSTILE, M3_INFRAVISION,
-        9, CLR_BLUE, PIT_VIPER),
+        8, CLR_BLUE, PIT_VIPER),
     MON(NAM("cobra"), S_SNAKE,
         LVL(6, 18, 2, 0, 0), (G_GENO | 1),
         A(ATTK(AT_BITE, AD_DRST, 2, 4), ATTK(AT_SPIT, AD_BLND, 0, 0),
@@ -2216,7 +2273,16 @@
         M1_SWIM | M1_CONCEAL | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS
             | M1_CARNIVORE | M1_OVIPAROUS | M1_NOTAKE,
         M2_HOSTILE, 0,
-        10, CLR_BLUE, COBRA),
+        9, CLR_BLUE, COBRA),
+    MON(NAM("asp"), S_SNAKE, 
+        LVL(8, 18, 0, 10, 0), (G_GENO | 1), 
+        A(ATTK(AT_BITE, AD_PHYS, 3, 4), ATTK(AT_BITE, AD_DRST, 3, 4),
+          NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK),
+        SIZ(200, 80, MS_HISS, MZ_SMALL), MR_POISON, MR_POISON,
+        M1_SWIM | M1_CONCEAL | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS
+            | M1_CARNIVORE | M1_OVIPAROUS | M1_NOTAKE,
+        M2_HOSTILE, 0,
+        10, CLR_GRAY, ASP),
     /*
      * Trolls
      */
@@ -2955,7 +3021,7 @@
         SIZ(WT_HUMAN, 400, MS_SILENT, MZ_HUMAN), MR_FIRE | MR_POISON, 0,
         M1_POIS | M1_THICK_HIDE, M2_DEMON | M2_STALK | M2_HOSTILE | M2_NASTY,
         M3_INFRAVISIBLE | M3_INFRAVISION,
-        11, CLR_RED, BARBED_DEVIL),
+        10, CLR_RED, BARBED_DEVIL),
     MON(NAM("marilith"), S_DEMON,
         LVL(7, 12, -6, 80, -12), (G_HELL | G_NOCORPSE | 1),
         A(ATTK(AT_WEAP, AD_PHYS, 2, 4), ATTK(AT_WEAP, AD_PHYS, 2, 4),
@@ -3000,7 +3066,7 @@
         MR_FIRE | MR_COLD | MR_POISON, 0, M1_SEE_INVIS | M1_POIS,
         M2_DEMON | M2_STALK | M2_HOSTILE | M2_NASTY,
         M3_INFRAVISIBLE | M3_INFRAVISION,
-        15, CLR_WHITE, ICE_DEVIL),
+        14, CLR_WHITE, ICE_DEVIL),
     MON(NAM("nalfeshnee"), S_DEMON,
         LVL(11, 9, -1, 65, -11), (G_HELL | G_NOCORPSE | 1),
         A(ATTK(AT_CLAW, AD_PHYS, 1, 4), ATTK(AT_CLAW, AD_PHYS, 1, 4),
@@ -3612,7 +3678,7 @@
         M2_NOPOLY | M2_DEMON | M2_STALK | M2_HOSTILE | M2_STRONG | M2_NASTY
             | M2_COLLECT,
         M3_WANTSARTI | M3_WAITFORU | M3_INFRAVISION | M3_INFRAVISIBLE,
-        23, CLR_ORANGE, MINION_OF_HUHETOTL),
+        23, CLR_RED, MINION_OF_HUHETOTL),
     MON(NAM("Thoth Amon"), S_HUMAN,
         LVL(16, 12, 0, 10, -14), (G_NOGEN | G_UNIQ | G_NOCORPSE),
         A(ATTK(AT_WEAP, AD_PHYS, 1, 6), ATTK(AT_MAGC, AD_SPEL, 0, 0),
@@ -3698,7 +3764,7 @@
         M2_NOPOLY | M2_DEMON | M2_MALE | M2_PNAME | M2_HOSTILE | M2_STRONG
             | M2_STALK | M2_NASTY | M2_COLLECT,
         M3_WANTSARTI | M3_WAITFORU | M3_INFRAVISION | M3_INFRAVISIBLE,
-        23, CLR_ORANGE, NALZOK),
+        23, CLR_RED, NALZOK),
     MON(NAM("Scorpius"), S_SPIDER,
         LVL(15, 12, 10, 0, -15), (G_NOGEN | G_UNIQ),
         A(ATTK(AT_CLAW, AD_PHYS, 2, 6), ATTK(AT_CLAW, AD_SAMU, 2, 6),

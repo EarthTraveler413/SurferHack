@@ -90,6 +90,7 @@
 
 #define AD_SAMU 252 /* hits, may steal Amulet (Wizard) */
 #define AD_CURS 253 /* random curse (ex. gremlin) */
+#define AD_MLGN 254 /* curses equipment (maligner) */
 
 struct mhitm_data {
     int damage;
