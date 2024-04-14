@@ -148,6 +148,48 @@ const struct Role roles[NUM_ROLES+1] = {
       A_INT,
       SPE_DIG,
       -4 },
+#if 0
+    { { "Druid", 0 },
+      { { "Rhizotomist", 0 },
+        { "Empiric", 0 },
+        { "Embalmer", 0 },
+        { "Dresser", 0 },
+        { "Medicus ossium", "Medica ossium" },
+        { "Herbalist", 0 },
+        { "Magister", "Magistra" },
+        { "Physician", 0 },
+        { "Chirurgeon", 0 } },
+      "_Athena", "Hermes", "Poseidon", /* Greek */
+      "Dru",
+      "the Temple of Epidaurus",
+      "the Temple of Coeus",
+      PM_DRUID,
+      NON_PM,
+      PM_HIPPOCRATES,
+      PM_ATTENDANT,
+      PM_CYCLOPS,
+      PM_GIANT_RAT,
+      PM_SNAKE,
+      S_RODENT,
+      S_YETI,
+      ART_STAFF_OF_AESCULAPIUS,
+      MH_HUMAN | MH_ELF | ROLE_MALE | ROLE_FEMALE | ROLE_NEUTRAL | ROLE_CHAOTIC,
+      /* Str Int Wis Dex Con Cha */
+      { 8, 8, 10, 9, 10, 7 },
+      { 16, 17, 17, 16, 16, 17 },
+      /* Init   Lower  Higher */
+      { 11, 0, 0, 8, 1, 0 }, /* Hit points */
+      { 1, 4, 0, 1, 0, 2 },
+      20, /* Energy */
+      10,
+      3,
+      -3,
+      2,
+      10,
+      A_WIS,
+      SPE_POLYMORPH,
+      -4 },
+#endif
     { { "Healer", 0 },
       { { "Rhizotomist", 0 },
         { "Empiric", 0 },
@@ -569,6 +611,49 @@ const struct Role roles[NUM_ROLES+1] = {
       SPE_MAGIC_MISSILE,
       -4 },
     /* Array terminator */
+#if 0
+    { { "Artificer", 0 }, 
+      { { "Apprentice", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 },
+        { "placeholder", 0 } },
+        "Law", "Neutral", "Chaos", /* origin */
+        "Art",
+        "placeholder",
+        "placeholder",
+        PM_ARTIFICER,
+        NON_PM,
+        PM_QUESTLEADER,
+        PM_QUESTGUARDIAN,
+        PM_QUESTNEMESIS,
+        PM_PLACEHOLDER,
+        PM_PLACEHOLDER,
+        S_PLACEHOLDER,
+        S_PLACEHOLDER,
+        ART_PLACEHOLDER,
+        MH_HUMAN | MH_DWARF | MH_GNOME | ROLE_MALE | ROLE_FEMALE
+            | ROLE_LAWFUL | ROLE_NEUTRAL,
+        /* Str Int Wis Dex Con Cha */
+        { 7, 10, 7, 7, 7, 7 },
+        { 10, 30, 10, 20, 20, 10 },
+        /* Init   Lower  Higher */
+        { 10, 0, 0, 8, 1, 0 }, /* Hit points */
+        { 4, 3, 0, 2, 0, 3 },
+        12, /* Energy */
+        0,
+        1,
+        0,
+        3,
+        10,
+        A_INT,
+        SPE_MAGIC_MISSILE,
+        -4 },
+#endif
     UNDEFINED_ROLE,
 };
 
