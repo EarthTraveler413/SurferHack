@@ -455,14 +455,15 @@ sa2_xpleveldown WAVE "sa2_xpleveldown.wav"
 sa2_xplevelup WAVE "sa2_xplevelup.wav"
 #endif
 
+#ifdef VIA_MAKE
 #ifndef ID_MANIFEST
 #define ID_MANIFEST 1
 #endif
 #ifndef RT_MANIFEST
 #define RT_MANIFEST MAKEINTRESOURCE(24)
 #endif
-
 ID_MANIFEST RT_MANIFEST "NetHackW.exe.manifest"
+#endif
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
