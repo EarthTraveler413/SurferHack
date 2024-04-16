@@ -271,6 +271,12 @@ static NEARDATA struct artifact artilist[] = {
       NO_ATTK, DFNS(AD_MAGM), NO_CARY, CREATE_PORTAL, A_NEUTRAL, PM_WIZARD,
       NON_PM, 4000L, NO_COLOR, EYE_OF_THE_AETHIOPICA),
 
+    A("The Saddle of Karras", SADDLE, 
+      (SPFX_NOGEN | SPFX_RESTR | SPFX_INTEL), SPFX_REGEN, 0, 
+      NO_ATTK, NO_DFNS, NO_CARY, 0, A_NEUTRAL, NON_PM,
+      NON_PM, 3000L, NO_COLOR, SADDLE_OF_KARRAS),
+
+
 #if !defined(ARTI_ENUM) && !defined(DUMP_ARTI_ENUM)
     /*
      *  terminator; otyp must be zero

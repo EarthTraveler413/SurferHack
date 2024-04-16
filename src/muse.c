@@ -2683,6 +2683,13 @@ mon_reflects(struct monst *mon, const char *str)
         if (str)
             pline(str, s_suffix(mon_nam(mon)), "weapon");
         return TRUE;
+        /* special case for the artificer's quest artifact, a special 
+           saddle that provides reflection */
+    } else if ((orefl = which_armor(mon, W_SADDLE))
+               && orefl->oartifact == ART_SADDLE_OF_KARRAS ){
+        if (str)
+            pline(str, s_suffix(mon_nam(mon)), "saddle");
+        return TRUE;
     } else if ((orefl = which_armor(mon, W_AMUL))
                && orefl->otyp == AMULET_OF_REFLECTION) {
         if (str) {
